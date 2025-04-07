@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+
+    --chart-1: 221.2 83.2% 53.3%;
+    --chart-2: 142.1 76.2% 36.3%;
+    --chart-3: 346.8 77.2% 49.8%;
+    --chart-4: 43.3 96.4% 56.3%;
+    --chart-5: 262.1 83.3% 57.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .dashboard-card {
+    @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .dashboard-card-header {
+    @apply p-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between;
+  }
+
+  .dashboard-card-title {
+    @apply text-lg font-semibold text-gray-800 dark:text-gray-200;
+  }
+
+  .dashboard-card-content {
+    @apply p-4;
+  }
+
+  .status-indicator {
+    @apply flex items-center gap-2 text-sm font-medium;
+  }
+
+  .status-dot {
+    @apply h-2.5 w-2.5 rounded-full;
+  }
+
+  .status-connected {
+    @apply text-emerald-600 dark:text-emerald-400;
+  }
+
+  .status-dot-connected {
+    @apply bg-emerald-500 dark:bg-emerald-400;
+  }
+
+  .status-disconnected {
+    @apply text-rose-600 dark:text-rose-400;
+  }
+
+  .status-dot-disconnected {
+    @apply bg-rose-500 dark:bg-rose-400;
+  }
+
+  .status-checking {
+    @apply text-amber-600 dark:text-amber-400;
+  }
+
+  .status-dot-checking {
+    @apply bg-amber-500 dark:bg-amber-400;
+  }
+
+  .dashboard-header {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-700 text-white;
+  }
+
+  .dashboard-tabs {
+    @apply bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-1;
+  }
+
+  .dashboard-tab {
+    @apply rounded-lg text-gray-600 dark:text-gray-400 font-medium hover:text-gray-900 dark:hover:text-gray-200 data-[state=active]:bg-blue-50 dark:data-[state=active]:bg-blue-900/20 data-[state=active]:text-blue-700 dark:data-[state=active]:text-blue-400 transition-all duration-200;
+  }
+
+  .dashboard-section {
+    @apply mb-6;
+  }
+
+  .dashboard-section-title {
+    @apply text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4;
+  }
+
+  .dashboard-grid {
+    @apply grid gap-6;
+  }
+
+  .dashboard-alert {
+    @apply rounded-lg border p-4 flex gap-3 items-start;
+  }
+
+  .dashboard-alert-icon {
+    @apply h-5 w-5 mt-0.5;
+  }
+
+  .dashboard-alert-success {
+    @apply bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300;
+  }
+
+  .dashboard-alert-error {
+    @apply bg-rose-50 dark:bg-rose-900/20 border-rose-200 dark:border-rose-800 text-rose-800 dark:text-rose-300;
+  }
+
+  .dashboard-alert-warning {
+    @apply bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-300;
+  }
+
+  .dashboard-alert-info {
+    @apply bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-300;
+  }
+
+  .dashboard-button {
+    @apply rounded-lg font-medium transition-all duration-200;
+  }
+
+  .dashboard-button-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600;
+  }
+
+  .dashboard-button-secondary {
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700;
+  }
+
+  .dashboard-button-outline {
+    @apply border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800;
+  }
+
+  .dashboard-input {
+    @apply rounded-lg border border-gray-300 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-200;
+  }
+
+  .dashboard-select {
+    @apply rounded-lg border border-gray-300 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-200;
+  }
+
+  .dashboard-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .dashboard-badge-blue {
+    @apply bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300;
+  }
+
+  .dashboard-badge-green {
+    @apply bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300;
+  }
+
+  .dashboard-badge-red {
+    @apply bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-300;
+  }
+
+  .dashboard-badge-yellow {
+    @apply bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300;
+  }
+
+  .dashboard-badge-purple {
+    @apply bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300;
+  }
+
+  .dashboard-badge-gray {
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300;
+  }
+
+  /* Animation classes */
+  .fade-in {
+    @apply animate-fadeIn;
+  }
+
+  .slide-in-right {
+    @apply animate-slideInRight;
+  }
+
+  .slide-in-left {
+    @apply animate-slideInLeft;
+  }
+
+  .slide-in-up {
+    @apply animate-slideInUp;
+  }
+
+  .pulse {
+    @apply animate-pulse;
+  }
+
+  .bounce {
+    @apply animate-bounce;
+  }
+
+  .spin {
+    @apply animate-spin;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slideInRight {
+    animation: slideInRight 0.5s ease-out;
+  }
+
+  .animate-slideInLeft {
+    animation: slideInLeft 0.5s ease-out;
+  }
+
+  .animate-slideInUp {
+    animation: slideInUp 0.5s ease-out;
+  }
+}
+
